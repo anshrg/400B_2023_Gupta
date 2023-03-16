@@ -1,0 +1,62 @@
+%% Beginning of file 'sample631.tex'
+%%
+%% using aastex version 6.3
+\documentclass[twocolumn]{aastex631}
+
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand\aastex{AAS\TeX}
+\newcommand\latex{La\TeX}
+
+\begin{document}
+
+\title{Fate of Solar System-Like Stars in MW-M31 Merger}
+
+\author[0000-0003-4242-8606]{Ansh R. Gupta}
+\affiliation{Steward Observatory, University of Arizona, 933 N Cherry Avenue, Tucson, AZ 85721, USA}
+
+\section{Introduction} \label{sec:intro}
+
+The Local Group (LG) is a group of galaxies dominated in mass by the Milky Way (MW) and Andromeda galaxy (M31). The LG's third most massive object, the Triangulum galaxy (M33), is a satellite of M31. Current estimates indicate that the MW and M31 will merge in approximately 5.86 Gyr \citep{2012ApJ...753....9V}. The expected morphology of the MW and M31 during and after the merger has far-reaching consequences. Studying the evolution of galaxy components can yield insight into how interacting galaxies grow and change over time and produce statistical predictions of the eventual fate of the Sun and similar stars.
+
+Here, I propose methods to visualize the eventual fate of a specific subset of bodies within M31. Specifically, I aim to determine whether stars at a similar distance from the M31 galaxy core as the Sun's galactocentric distance and with similar velocities remain within the merger remnant, are ejected, or are captured by M33. To aid in the visualization of these results, a movie of the merger event highlighting the selected particles will be created. Furthermore, specific movies can be made displaying a simulated view of the night sky from the perspective of particles that are ejected, remain in the system, or are captured by M33.
+
+Selecting specific stellar populations and determining their outcomes following a merger is a powerful method to probe how the composition and morphology of interacting galaxies change over time. While I aim to select Sun-like stars in this work, these methods can be modified to determine how stars in a galactic disk, bulge, or halo evolve differently over time. The varying interactions of these galaxy components may help predict the long term evolution and growth of merging galaxies. Visualizations can help display patterns that might be difficult to notice in data, allow for the comparison of the trajectories of specific particles, and serve as a vital tool for public outreach.
+
+Current state-of-the-art simulations suggest that the majority of Sun-like stars will remain within the merger remnant. However, analysis reveals that these objects will be distributed much more evenly throughout the remnant. \citet{2012ApJ...753....9V} use a canonical N-body simulation of the merger to show that a large majority of objects in a Sun-like orbit within the MW $(>85\%)$ migrate outwards following the merger, but most remain within $\sim 50$ kpc. A minority $(<0.1\%)$ are ejected out to a large radius $(>100$ kpc), but all candidates in the simulation remained gravitationally bound to the system. Although approximately $20\%$ of the candidates in the simulation pass through M33, none are accreted by the galaxy. Many of the selected stars are dislodged into "stellar streams", long tails of stars cast out during the merging process. Several stellar streams caused by the tidal disruption of dwarf galaxies have been discovered in the MW halo \citep[and references therein]{2006ApJ...642L.137B}. \citet{2014ApJ...787...19M} show that some streams caused by the tidal disruption of dwarf galaxies show a strong radial distance gradient, which is consistent with the low proportion of highly distant Sun-like stars from the merger simulation.
+
+\begin{figure}[ht!]
+\plotone{figure1.jpg}
+\caption{Individual frames from an N-body simulation of the MW-M31 merger, projected onto the galactocentric plane with the origin at the MW center of mass. The time of each snapshot is shown in the top left, with dotted lines indicating galaxy orbital paths. Sun-like stars are shown in red. Most of the selected stars migrate outwards, some are cast into stellar streams, and a small fraction are ejected far away. All objects remain gravitationally bound to the system. Figure adapted from \citet{2012ApJ...753....9V}.
+\label{fig1}}
+\end{figure}
+
+Snapshots of the simulation from \citet{2012ApJ...753....9V} are shown in Figure \ref{fig1}, which visually summarize the possible fates of Sun-like stars and display the structure of the stellar streams. Although the work investigates the future of MW Sun-like stars, the fate of such objects in the M31 disk has not yet been studied. Furthermore, it's not clear whether analogous systems in M33 are captured in tidal tails, accreted by the merger remnant, remain part of M33, or are otherwise ejected. Furthermore, previous simulations have not included other LG galaxies, such as the Large and Small Magellanic Clouds \citep{1996ApJ...462..576D}\citep{2008MNRAS.386..461C}\citep{2012ApJ...753....9V}. An open question remains as to whether these other galaxies may have an affect on the merger, whether Sun-like stars will pass through them, and whether they may be disrupted by or impact the MW before the merger takes place. As the proper motions of other LG satellite galaxies have been better constrained, including them in future N-body simulations is a topic of interest \citep{2015IAUS..311....1V}.
+
+\section{Proposal} \label{sec:proposal}
+\subsection{Visualization of Sun-like M31 Particle Evolution}
+The goal of the proposed work is to understand the eventual fate of Sun-like particles in the disk of M31 following the merger. These particles are selected to have a similar distance from the M31 galactic center as the Sun's distance to the center of the MW ($\sim 8.29$ kpc) and similar circular velocity ($\sim 239$ km s$^{-1}$) \citep{2012ApJ...753....8V}. A visualization will be made using N-body simulation data supplied from \citet{2012ApJ...753....9V} highlighting the selected particles and tracking their evolution over time. These visualizations can be used to qualitatively examine the morphological distribution of the selected objects following the merger. Quantitative analysis using the particle positions can be conducted to solidify these results, if necessary. In addition, movies of the night sky view from the perspective of a few sample particles following various trajectories will be created.
+
+\subsection{Experimental Approach}
+To produce these visualizations, a few specific codes must be created. An existing code uses iterative spheres of shrinking volume to calculate the center of mass (COM) of each galaxy to avoid contamination from ejected stars. Using these COM coordinates, the distance of each galaxy particle from its corresponding center can be determined. A new code will be created to determine the circular speed of particles by determining the tangential component of their overall velocity. This can be accomplished by projecting the 3-D velocity on the perpendicular to the radial vector. Using the determined radii and circular speeds, another code will select particles that match the Sun's parameters within a set tolerance. This tolerance will initially be fixed at $\sim 10\%$, but can be adjusted to broaden or narrow the selection. Using the Python software Matplotlib, all particles will be plotted, with the Sun-like stars being assigned a separate color. The visualization will proceed centered on the MW COM. These frames can then be stitched together into a movie using Adobe Premiere. An example frame is shown in Figure \ref{fig2}. Plots including axis labels and units will be generated as well.
+
+\begin{figure}[ht!]
+\plotone{figure2.png}
+\caption{Example frame produced using Matplotlib showing a possible view of the visualization, with disk particles of the MW, M31 and M33 shown. The proposed visualization will highlight Sun-like particles of M31 in a different color. This style of visualization will work for the 3-D night-sky views from Sun-like M31 particles, which are intended to display the perspective of those objects. A Mollweide projection will be used to generate 2-D night sky views. Simulation data taken from \citet{2012ApJ...753....9V}.
+\label{fig2}}
+\end{figure}
+
+Night sky views from the perspective of a given particle can be constructed by re-centering the simulation. Transformed coordinates for each star are the relative positions of each to the particle of interest. To produce a night-sky view, a 2-dimensional plot can be made using a Mollweide projection, which maps the 3-D sphere containing all particles onto a plane, and a 3-D movie can be made in software such as Adobe After Effects using a list of the relative positions of each particle for each frame. 
+
+\subsection{Expected Results}
+M31 is of comparable size to the MW, so one may expect that the trajectories of Sun-like stars are similar for both galaxies. One significant difference is that the M31 spin axis is nearly perpendicular to the orbital plane of the MW and M31, which also roughly defines the plane of the collision \citep{2012ApJ...753....9V}. This is in contrast to the MW, which has a closer orbital alignment. These differences may cause a change in the dynamics of M31 Sun-like stars, as stars off-axis from the collision may be more significantly disrupted. Also, as M33 is a satellite galaxy of M31, ejected stars may have a greater probability of being captured by it. However, overall, it seems reasonable to assume that the outcomes of these stars will be similar to those in the MW due to the similarities of the two galaxies.
+
+\begin{acknowledgments}
+Thank you to Professor Gurtina Besla and TA Hayden Foote for instructing the Spring 2023 semester ASTR 400B course at the University of Arizona.
+\end{acknowledgments}
+
+\bibliography{bibliography}{}
+\bibliographystyle{aasjournal}
+
+\end{document}
+
+% End of file `sample631.tex'.
