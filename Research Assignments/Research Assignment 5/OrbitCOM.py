@@ -76,7 +76,7 @@ def OrbitCOM(galaxy, start, end, n, path):
         ilbl = '000' + str(snap_id) # add a string of the filenumber to the value “000”
         ilbl = ilbl[-3:] # remove all but the last 3 digits
         # compose filename for each snap number being iterated
-        filename = path + f'{galaxy}_VLowRes/' + '%s_'%(galaxy) + ilbl + '.txt' 
+        filename = path + f'{galaxy}/' + '%s_'%(galaxy) + ilbl + '.txt' 
         
         # Initialize an instance of CenterOfMass class, using disk particles
         COM = CenterOfMass(filename, ptype=2)
